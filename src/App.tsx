@@ -28,7 +28,7 @@ function App() {
     position: "gribo4ki hater",
     description: "Hates gribo4ki more than anyone else.",
     socialItems: [
-      { icon: XIcon, value: "хз не спросил ещё", size: "size-5" },
+      { icon: XIcon, value: "33elveri", size: "size-5", link: "https://x.com/33elveri" },
       { icon: DiscordIcon, value: "@codeineware", size: "size-5" }
     ]
   },
