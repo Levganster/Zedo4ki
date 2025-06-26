@@ -14,4 +14,16 @@ export default defineConfig({
         '@': path.resolve(__dirname, './src'),
       },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+    target: 'esnext',
+    minify: 'esbuild',
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'three', '@react-three/fiber', '@react-three/drei'],
+  },
 })
