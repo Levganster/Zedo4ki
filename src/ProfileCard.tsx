@@ -1,15 +1,23 @@
-import DiscordIcon from './assets/discord-svgrepo-com.svg'
-import XIcon from './assets/x-social-media-black-icon.svg'
+import { useCallback } from 'react'
+import { toast } from 'sonner'
+
+interface SocialItem {
+  icon: string
+  value: string
+  isLink?: boolean
+  link?: string
+  isCopyable?: boolean
+  truncate?: boolean
+  size?: string
+  className?: string
+}
 
 interface ProfileCardProps {
   avatar: string
   name: string
   position: string
   description: string
-  socialLinks: {
-    twitter?: string
-    discord?: string
-  }
+  socialItems?: SocialItem[]
 }
 
 export default function ProfileCard({ 
@@ -17,12 +25,32 @@ export default function ProfileCard({
   name, 
   position, 
   description, 
-  socialLinks 
+  socialItems = []
 }: ProfileCardProps) {
-  const socialData = {
-    twitter: { icon: XIcon, link: "https://x.com/" },
-    discord: { icon: DiscordIcon, link: "https://discord.gg/" }
-  }
+  const truncateAddress = useCallback((address: string, startChars = 4, endChars = 4) => {
+    if (address.length <= startChars + endChars) return address
+    return `${address.slice(0, startChars)}...${address.slice(-endChars)}`
+  }, [])
+
+  const copyToClipboard = useCallback(async (e: React.MouseEvent, text: string) => {
+    e.preventDefault()
+    e.stopPropagation()
+    try {
+      await navigator.clipboard.writeText(text)
+      toast.success('Скопировано!', {
+        description: `${text.slice(0, 8)}...${text.slice(-8)}`
+      })
+    } catch {
+      const textArea = document.createElement('textarea')
+      textArea.value = text
+      textArea.style.position = 'fixed'
+      textArea.style.opacity = '0'
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.body.removeChild(textArea)
+      toast.success('Скопировано!')
+    }
+  }, [])
 
   return (
     <div className="relative p-6 rounded-2xl bg-black/40 border border-white/20 shadow-2xl max-w-xl w-full h-full mx-auto backdrop-blur-sm flex flex-col">
@@ -57,54 +85,37 @@ export default function ProfileCard({
 
       {/* Социальные сети */}
       <div className="space-y-2">
-        {Object.entries(socialLinks).map(([platform, url]) => {
-          if (!url) return null
-          
-          const social = socialData[platform as keyof typeof socialData]
-          
-          if (platform === 'discord') {
-            return (
-              <div
-                key={platform}
-                className="flex items-center gap-3 text-white/90 font-montserrat drop-shadow-sm"
-                title={platform}
+        {socialItems.map((item, index) => (
+          <div key={index} className={`flex items-center gap-3 text-white/90 font-montserrat drop-shadow-sm ${item.className || ''}`}>
+            <img 
+              src={item.icon} 
+              alt=""
+              className={`flex-shrink-0 opacity-70 ${item.size || 'size-5'}`}
+              style={{ filter: 'brightness(0) invert(1)' }}
+            />
+            {item.isLink ? (
+              <a
+                href={item.link || item.value}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm sm:text-base hover:text-white transition-colors duration-200 underline"
               >
-                <img 
-                  src={social.icon} 
-                  alt={platform}
-                  className="flex-shrink-0 opacity-70 w-5 h-5"
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
-                <span className="text-sm sm:text-base">
-                  @{socialLinks[platform as keyof typeof socialLinks]}
-                </span>
-              </div>
-            )
-          }
-          
-          return (
-            <a
-              key={platform}
-              href={`${social.link}${url}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-white/90 hover:text-white transition-colors duration-200 font-montserrat drop-shadow-sm"
-              title={platform}
-            >
-              <img 
-                src={social.icon} 
-                alt={social.link}
-                className={`flex-shrink-0 opacity-70 hover:opacity-90 transition-opacity duration-200 ${
-                  platform === 'twitter' ? 'w-5 h-4' : 'w-5 h-5'
-                }`}
-                style={{ filter: 'brightness(0) invert(1)' }}
-              />
-                <span className="text-sm sm:text-base">
-                  @<span className="underline">{socialLinks[platform as keyof typeof socialLinks]}</span>
-               </span>
-            </a>
-          )
-        })}
+                {item.value}
+              </a>
+            ) : item.isCopyable ? (
+              <button
+                onClick={(e) => copyToClipboard(e, item.value)}
+                className="text-sm sm:text-base hover:text-white transition-colors duration-200 cursor-pointer bg-transparent border-none p-0 font-mono"
+              >
+                {item.truncate ? truncateAddress(item.value) : item.value}
+              </button>
+            ) : (
+              <span className="text-sm sm:text-base">
+                {item.value}
+              </span>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   )

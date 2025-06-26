@@ -5,6 +5,10 @@ import photo1 from './assets/photo1.jpg'
 import photo2 from './assets/photo2.jpg'
 import photo3 from './assets/photo3.jpg'
 import RotatingMushroom from './RotatingMushroom'
+import { Toaster } from 'sonner'
+import DiscordIcon from './assets/discord-svgrepo-com.svg'
+import XIcon from './assets/x-social-media-black-icon.svg'
+import SolanaIcon from './assets/solana-svgrepo-com.svg'
 
 function App() {
   const exampleProfiles = [{
@@ -12,30 +16,32 @@ function App() {
     name: "zfrmpro",
     position: "gribo4ki CEO",
     description: "Founded a worst sub-community in the world.",
-    socialLinks: {
-      twitter: "zfrmpro",
-      discord: "unluckiestly"
-    }
+    socialItems: [
+      { icon: XIcon, value: "@zfrmpro", isLink: true, size: "size-5", link: "https://x.com/zfrmpro" },
+      { icon: DiscordIcon, value: "@unluckiestly", size: "size-5" },
+      { icon: SolanaIcon, value: "H54G7u3cRZVzhkCgxbkYqpmWAQgiBVMWiAmXYQt23gjb", isCopyable: true, truncate: true, size: "size-5" }
+    ]
   },
   {
     avatar: photo2,
     name: "exxclave",
     position: "gribo4ki hater",
     description: "Hates gribo4ki more than anyone else.",
-    socialLinks: {
-      twitter: "хз не спросил ещё",
-      discord: "codeineware"
-    }
+    socialItems: [
+      { icon: XIcon, value: "хз не спросил ещё", size: "size-5" },
+      { icon: DiscordIcon, value: "@codeineware", size: "size-5" }
+    ]
   },
   {
     avatar: photo3,
     name: "aivazovski",
     position: "the best frontend developer in the world",
     description: "made this shit.",
-    socialLinks: {
-      twitter: "не",
-      discord: "aivazovski"
-    }
+    socialItems: [
+      { icon: XIcon, value: "@не", size: "size-5" },
+      { icon: DiscordIcon, value: "@aivazovski", size: "size-5" },
+      
+    ]
   }
 ]
 
@@ -52,6 +58,19 @@ function App() {
           ))}
         </div>
       </div>
+      <Toaster 
+        theme="dark" 
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: 'rgba(0, 0, 0, 0.4)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            color: 'white',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+          },
+        }}
+      />
     </div>
   )
 }
