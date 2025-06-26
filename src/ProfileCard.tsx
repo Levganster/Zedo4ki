@@ -53,7 +53,7 @@ export default function ProfileCard({
   }, [])
 
   return (
-    <div className="relative p-6 rounded-2xl bg-black/40 border border-white/20 shadow-2xl max-w-xl w-full h-full mx-auto backdrop-blur-sm flex flex-col">
+    <div className="relative p-6 rounded-2xl bg-black/40 border border-white/20 shadow-2xl max-w-xl w-full h-full mx-auto backdrop-blur-md flex flex-col">
       {/* Градиентная подсветка по краям - уменьшена интенсивность */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/3 via-transparent to-white/3 pointer-events-none" />
       

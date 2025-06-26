@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
+const ANIMATION_COLORS = [
+  "#00d4ff", "#0099ff", "#0066ff", "#3300ff", 
+  "#6600ff", "#9900ff", "#ff00ff", "#00d4ff"
+]
+
 export default function AnimatedTitle() {
   const [numberOfFours, setNumberOfFours] = useState(1)
   const [isOnPause, setIsOnPause] = useState(false)
@@ -63,10 +68,7 @@ export default function AnimatedTitle() {
             opacity: 1, 
             x: 0,
             scale: 1,
-            color: [
-              "#ff0000", "#ff8000", "#ffff00", "#00ff00", 
-              "#0080ff", "#4000ff", "#8000ff", "#ff0000"
-            ],
+            color: ANIMATION_COLORS,
             transition: {
               color: {
                 duration: 0.65,
