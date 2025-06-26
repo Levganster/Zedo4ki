@@ -38,7 +38,6 @@ function App() {
     position: "the best frontend developer in the world",
     description: "made this shit.",
     socialItems: [
-      { icon: XIcon, value: "@не", size: "size-5" },
       { icon: DiscordIcon, value: "@aivazovski", size: "size-5" },
       
     ]
