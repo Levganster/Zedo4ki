@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-unbounded: 'Unbounded', ui-sans-serif, system-ui, sans-serif;
+  --font-montserrat: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Улучшение рендеринга шрифтов на всех устройствах */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Дополнительная оптимизация для мобильных */
+@media (max-width: 768px) {
+  * {
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeSpeed;
+  }
+}
