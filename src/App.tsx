@@ -33,8 +33,8 @@ function App() {
     position: "the best frontend developer in the world",
     description: "made this shit.",
     socialLinks: {
-      twitter: "хз не спросил ещё",
-      discord: "codeineware"
+      twitter: "не",
+      discord: "aivazovski"
     }
   }
 ]
