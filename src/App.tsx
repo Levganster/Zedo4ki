@@ -1,4 +1,4 @@
-import bg from "./assets/background.jpg";
+import bg from "./assets/background.png";
 import AnimatedTitle from "./AnimatedTitle";
 import ProfileCard from "./ProfileCard";
 import RotatingMushroom from "./RotatingMushroom";

@@ -6,7 +6,7 @@ import { Group } from "three";
 
 function MushroomModel() {
   const groupRef = useRef<Group>(null);
-  const { scene } = useGLTF("/Zv2.glb");
+  const { scene } = useGLTF("/Z.glb");
 
   useFrame((_, delta) => {
     if (groupRef.current) {
