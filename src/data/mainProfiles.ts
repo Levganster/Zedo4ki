@@ -32,8 +32,7 @@ export const exampleProfiles = [{
     position: "the best frontend developer in the world",
     description: "made this shit.",
     socialItems: [
-      { icon: DiscordIcon, value: "aivazovski", size: "size-5" },
-      
+      { icon: DiscordIcon, value: "aivazovski", size: "size-5" }
     ]
   }
 ]

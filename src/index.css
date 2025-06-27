@@ -20,50 +20,6 @@
   }
 }
 
-/* Кастомные hover эффекты для иконок */
-.hover-icon:hover .hover-icon\:border-cyan-400\/40 {
-  border-color: rgb(34 211 238 / 0.4);
-}
-
-.hover-icon:hover .hover-icon\:from-cyan-400\/20 {
-  --tw-gradient-from: rgb(34 211 238 / 0.2) var(--tw-gradient-from-position);
-}
-
-.hover-icon:hover .hover-icon\:to-purple-500\/20 {
-  --tw-gradient-to: rgb(168 85 247 / 0.2) var(--tw-gradient-to-position);
-}
-
-.hover-icon:hover .hover-icon\:blur-md {
-  --tw-blur: blur(12px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.hover-icon:hover .hover-icon\:bg-white\/8 {
-  background-color: rgb(255 255 255 / 0.08);
-}
-
-.hover-icon:hover .hover-icon\:border-white\/15 {
-  border-color: rgb(255 255 255 / 0.15);
-}
-
-.hover-icon:hover .hover-icon\:scale-110 {
-  --tw-scale-x: 1.1;
-  --tw-scale-y: 1.1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.hover-icon:hover .hover-icon\:opacity-100 {
-  opacity: 1;
-}
-
-.hover-icon:hover .hover-icon\:from-cyan-400\/15 {
-  --tw-gradient-from: rgb(34 211 238 / 0.15) var(--tw-gradient-from-position);
-}
-
-.hover-icon:hover .hover-icon\:to-purple-500\/15 {
-  --tw-gradient-to: rgb(168 85 247 / 0.15) var(--tw-gradient-to-position);
-}
-
 /* Футуристические стили для тоастов */
 .toast-futuristic {
   position: relative !important;

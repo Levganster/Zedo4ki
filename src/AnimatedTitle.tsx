@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 const ANIMATION_COLORS = [
-  "#00d4ff", "#0099ff", "#0066ff", "#3300ff", 
-  "#6600ff", "#9900ff", "#ff00ff", "#00d4ff"
+  "#22d3ee", "#38bdf8", "#60a5fa", "#818cf8", 
+  "#a78bfa", "#c084fc", "#e879f9", "#22d3ee"
 ]
 
 export default function AnimatedTitle() {
@@ -42,24 +42,20 @@ export default function AnimatedTitle() {
 
   return (
     <div className='relative text-4xl md:text-7xl font-bold text-white flex font-unbounded'>
-      {/* Глоу эффект для заголовка */}
       <div className="absolute inset-0 text-4xl md:text-7xl font-bold flex font-unbounded text-cyan-400/20 blur-sm pointer-events-none">
         GRIBO4KI
       </div>
       
-      {/* Чертежные элементы для заголовка */}
       <div className="absolute -left-3 -top-3 w-4 h-4 border-t border-l border-cyan-400/30" />
       <div className="absolute -right-3 -top-3 w-4 h-4 border-t border-r border-cyan-400/30" />
       <div className="absolute -left-3 -bottom-3 w-4 h-4 border-b border-l border-cyan-400/30" />
       <div className="absolute -right-3 -bottom-3 w-4 h-4 border-b border-r border-cyan-400/30" />
       
-      {/* Размерные точки */}
       <div className="absolute -top-1 left-1/4 w-1 h-1 bg-cyan-400/40 rounded-full" />
       <div className="absolute -top-1 right-1/4 w-1 h-1 bg-cyan-400/40 rounded-full" />
       <div className="absolute -bottom-1 left-1/4 w-1 h-1 bg-cyan-400/40 rounded-full" />
       <div className="absolute -bottom-1 right-1/4 w-1 h-1 bg-cyan-400/40 rounded-full" />
       
-      {/* Основной текст */}
       <div className="relative z-10 flex" style={{ textShadow: '0 0 20px rgba(34, 211, 238, 0.3)' }}>
         {["G", "R", "I", "B", "O"].map((char, index) => (
           <motion.span
@@ -76,7 +72,6 @@ export default function AnimatedTitle() {
             }}
           >
             {char}
-            {/* Индивидуальный глоу для каждой буквы */}
             <div className="absolute inset-0 text-cyan-400/10 blur-md pointer-events-none">
               {char}
             </div>
@@ -93,22 +88,22 @@ export default function AnimatedTitle() {
               scale: 1,
               color: ANIMATION_COLORS,
               textShadow: [
-                '0 0 20px rgba(34, 211, 238, 0.5)',
-                '0 0 40px rgba(168, 85, 247, 0.5)',
-                '0 0 60px rgba(59, 130, 246, 0.5)'
+                '0 0 15px rgba(34, 211, 238, 0.3)',
+                '0 0 25px rgba(168, 85, 247, 0.3)',
+                '0 0 35px rgba(59, 130, 246, 0.3)'
               ],
               transition: {
                 color: {
-                  duration: 0.65,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.1
-                },
-                textShadow: {
-                  duration: 0.8,
+                  duration: 1.2,
                   repeat: Infinity,
                   ease: "easeInOut",
                   delay: index * 0.15
+                },
+                textShadow: {
+                  duration: 1.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.2
                 }
               }
             } : { 
@@ -144,7 +139,6 @@ export default function AnimatedTitle() {
             }}
           >
             4
-            {/* Специальный глоу для анимированных цифр */}
             <motion.div 
               className="absolute inset-0 blur-lg pointer-events-none"
               animate={isOnPause ? {
@@ -152,16 +146,16 @@ export default function AnimatedTitle() {
                 opacity: [0.3, 0.6, 0.3],
                 transition: {
                   color: {
-                    duration: 0.65,
+                    duration: 1.2,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: index * 0.1
+                    delay: index * 0.15
                   },
                   opacity: {
-                    duration: 1,
+                    duration: 1.6,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: index * 0.2
+                    delay: index * 0.25
                   }
                 }
               } : {
@@ -172,7 +166,6 @@ export default function AnimatedTitle() {
               4
             </motion.div>
             
-            {/* Дополнительный постоянный глоу для четверок */}
             <div className="absolute inset-0 text-cyan-400/10 blur-md pointer-events-none">
               4
             </div>
@@ -194,7 +187,6 @@ export default function AnimatedTitle() {
             }}
           >
             {char}
-            {/* Индивидуальный глоу для каждой буквы */}
             <div className="absolute inset-0 text-cyan-400/10 blur-md pointer-events-none">
               {char}
             </div>
