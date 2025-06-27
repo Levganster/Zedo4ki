@@ -12,18 +12,18 @@ export const exampleProfiles = [{
     description: "Founded a worst sub-community in the world.",
     socialItems: [
       { icon: XIcon, value: "@zfrmpro", isLink: true, size: "size-5", link: "https://x.com/zfrmpro" },
-      { icon: DiscordIcon, value: "@unluckiestly", size: "size-5" },
+      { icon: DiscordIcon, value: "unluckiestly", size: "size-5" },
       { icon: SolanaIcon, value: "H54G7u3cRZVzhkCgxbkYqpmWAQgiBVMWiAmXYQt23gjb", isCopyable: true, truncate: true, size: "size-5" }
     ]
   },
   {
     avatar: photo2,
-    name: "exxclave",
+    name: "33elveri",
     position: "gribo4ki hater",
     description: "Hates gribo4ki more than anyone else.",
     socialItems: [
       { icon: XIcon, value: "@33elveri", size: "size-5", link: "https://x.com/33elveri", isLink: true },
-      { icon: DiscordIcon, value: "@codeineware", size: "size-5" }
+      { icon: DiscordIcon, value: "codeineware", size: "size-5" }
     ]
   },
   {
@@ -32,7 +32,7 @@ export const exampleProfiles = [{
     position: "the best frontend developer in the world",
     description: "made this shit.",
     socialItems: [
-      { icon: DiscordIcon, value: "@aivazovski", size: "size-5" },
+      { icon: DiscordIcon, value: "aivazovski", size: "size-5" },
       
     ]
   }
