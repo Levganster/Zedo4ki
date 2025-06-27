@@ -7,7 +7,7 @@ export const exampleProfiles = [
     avatar: avatar1,
     name: "aivazovski",
     position: "the best cocksucker in the world",
-    description: "made this shit.",
+    description: "dont made this shit.",
     socialItems: [{ icon: DiscordIcon, value: "aivazovski", size: "size-5" }],
   },
   {
